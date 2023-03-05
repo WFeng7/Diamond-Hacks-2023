@@ -11,7 +11,8 @@ toggleBtn.onclick = function() {
         : 'fa-solid fa-bars'
 }
 
-var map = L.map('map').setView([35.7596, -78.5], 10);
+var map = L.map('map', { zoomControl: false }).setView([35.7596, -78.5], 10);
+map.scrollWheelZoom.disable();
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -49,6 +50,6 @@ document.getElementById('addThing').addEventListener('click', () => {
     shelters.push(best);
     console.log(best);
     var marker = L.marker(best).addTo(map);
-    L.circleMarker(best, { radius: 85 }).addTo(map);
+    L.circleMarker(best, { radius: 85, fillColor: 'red' }).addTo(map);
     marker._icon.classList.add("huechange");
 });
