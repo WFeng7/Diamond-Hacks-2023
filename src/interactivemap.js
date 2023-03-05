@@ -27,7 +27,7 @@ homeless.forEach(v => {
 });
 
 document.getElementById('addThing').addEventListener('click', () => {
-    let h = homeless.slice();
+    let h = homeless;
     shelters.forEach(v => {
         for (let i = h.length - 1; i >= 0; i--) {
             let dist = (h[i][0] - v[0]) ** 2 + (h[i][1] - v[1]) ** 2;
