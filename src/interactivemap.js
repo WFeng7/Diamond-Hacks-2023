@@ -18,6 +18,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 shelters.forEach(v => {
     L.marker(v).addTo(map);
+    L.circleMarker(v, { radius: 85 }).addTo(map);
 });
 homeless.forEach(v => {
     L.circleMarker(v, { radius: 1 }).addTo(map);
@@ -38,7 +39,7 @@ document.getElementById('addThing').addEventListener('click', () => {
         let c = 0;
         for (let i = h.length - 1; i >= 0; i--) {
             let dist = (h[i][0] - v[0]) ** 2 + (h[i][1] - v[1]) ** 2;
-            if (dist < 0.071824) c++;
+            if (dist < 0.01) c++;
         }
         if (!best || bestC < c) {
             best = v;
@@ -48,5 +49,6 @@ document.getElementById('addThing').addEventListener('click', () => {
     shelters.push(best);
     console.log(best);
     var marker = L.marker(best).addTo(map);
+    L.circleMarker(best, { radius: 85 }).addTo(map);
     marker._icon.classList.add("huechange");
 });
