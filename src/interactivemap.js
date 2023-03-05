@@ -12,14 +12,6 @@ toggleBtn.onclick = function() {
 }
 
 var map = L.map('map').setView([35.7596, -78.5], 10);
-map.dragging.disable();
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
-map.boxZoom.disable();
-map.keyboard.disable();
-if (map.tap) map.tap.disable();
-document.getElementById('map').style.cursor = 'default';
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
