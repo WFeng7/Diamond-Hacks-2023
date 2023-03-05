@@ -5,6 +5,8 @@
     font-family: 'Tahoma', sans-serif;
 }
 
+img.huechange { filter: hue-rotate(120deg); }
+
 body {
     height: 100vh;
     overflow: hidden;
