@@ -7,6 +7,18 @@
 
 img.huechange { filter: hue-rotate(120deg); }
 
+#addThing {
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
+#addThing:hover {
+    background-color: darkgray;
+}
+
 body {
     height: 100vh;
     overflow: hidden;
