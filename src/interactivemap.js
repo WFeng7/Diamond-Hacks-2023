@@ -13,6 +13,7 @@ toggleBtn.onclick = function() {
 
 var map = L.map('map', { zoomControl: false }).setView([35.7596, -78.5], 10);
 map.scrollWheelZoom.disable();
+map.doubleClickZoom.disable();
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -33,7 +34,7 @@ document.getElementById('addThing').addEventListener('click', () => {
             if (dist < 0.01) h.splice(i, 1);
         }
     });
-    if (!h.length) alert('no more shelters needed!');
+    if (!h.length) return void alert('no more shelters needed!');
     let best;
     let bestC;
     h.forEach(v => {
@@ -52,4 +53,10 @@ document.getElementById('addThing').addEventListener('click', () => {
     var marker = L.marker(best).addTo(map);
     L.circleMarker(best, { radius: 85, fillColor: 'red' }).addTo(map);
     marker._icon.classList.add("huechange");
+});
+
+document.getElementById('map').style.cursor = 'default';
+map.on('click', function(e) {
+    homeless.push([e.latlng.lat, e.latlng.lng]);
+    L.circleMarker([e.latlng.lat, e.latlng.lng], { radius: 1, color: 'red' }).addTo(map);
 });
