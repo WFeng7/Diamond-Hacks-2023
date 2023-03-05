@@ -34,7 +34,7 @@ document.getElementById('addThing').addEventListener('click', () => {
             if (dist < 0.01) h.splice(i, 1);
         }
     });
-    if (!h.length) return void alert('no more shelters needed!');
+    if (!h.length) return void alert('No more shelters needed!');
     let best;
     let bestC;
     h.forEach(v => {
